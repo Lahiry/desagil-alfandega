@@ -1,16 +1,17 @@
 package br.edu.insper.desagil.alfandega;
 
-public class Item {
+public abstract class Item {
 	private String nome;
 	private double valor;
 	private double rate;
-
+	
 	public Item(String nome, double valor, double rate) {
+		super();
 		this.nome = nome;
 		this.valor = valor;
 		this.rate = rate;
 	}
-
+	
 	public String getNome() {
 		return this.nome;
 	}
@@ -22,4 +23,7 @@ public class Item {
 	public double getRate() {
 		return this.rate;
 	}
+
+	public abstract double getPreco();
+	
 }

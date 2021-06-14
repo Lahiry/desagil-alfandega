@@ -17,23 +17,23 @@ class AlfandegaTest {
 
 	@Test
 	void testA() {
-		alfandega.declara(new Item("a", 25.0, 5.12));
-		alfandega.declara(new Item("b", 50.0, 6.19));
+		alfandega.declara(new ItemSemTarifa("a", 25.0, 5.12));
+		alfandega.declara(new ItemSemTarifa("b", 50.0, 6.19));
 		assertEquals(437.5, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(4.38, alfandega.getTotalDevido(), DELTA);
 	}
 
 	@Test
 	void testB() {
-		alfandega.declara(new Item("a", 50.0, 5.12));
-		alfandega.declara(new Item("b", 25.0, 6.19));
+		alfandega.declara(new ItemSemTarifa("a", 50.0, 5.12));
+		alfandega.declara(new ItemSemTarifa("b", 25.0, 6.19));
 		assertEquals(410.75, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(4.11, alfandega.getTotalDevido(), DELTA);
 	}
 
 	@Test
 	void testC() {
-		alfandega.declara(new Item("a", 25.0, 5.12));
+		alfandega.declara(new ItemSemTarifa("a", 25.0, 5.12));
 		alfandega.declara(new ItemTarifado("b", 50.0, 6.19, 0.6));
 		assertEquals(437.5, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(186.98, alfandega.getTotalDevido(), DELTA);
@@ -41,7 +41,7 @@ class AlfandegaTest {
 
 	@Test
 	void testD() {
-		alfandega.declara(new Item("a", 50.0, 5.12));
+		alfandega.declara(new ItemSemTarifa("a", 50.0, 5.12));
 		alfandega.declara(new ItemTarifado("b", 25.0, 6.19, 0.6));
 		assertEquals(410.75, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(95.41, alfandega.getTotalDevido(), DELTA);
@@ -50,7 +50,7 @@ class AlfandegaTest {
 	@Test
 	void testE() {
 		alfandega.declara(new ItemTarifado("a", 25.0, 5.12, 0.6));
-		alfandega.declara(new Item("b", 50.0, 6.19));
+		alfandega.declara(new ItemSemTarifa("b", 50.0, 6.19));
 		assertEquals(437.5, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(79.9, alfandega.getTotalDevido(), DELTA);
 	}
@@ -58,7 +58,7 @@ class AlfandegaTest {
 	@Test
 	void testF() {
 		alfandega.declara(new ItemTarifado("a", 50.0, 5.12, 0.6));
-		alfandega.declara(new Item("b", 25.0, 6.19));
+		alfandega.declara(new ItemSemTarifa("b", 25.0, 6.19));
 		assertEquals(410.75, alfandega.getTotalDeclarado(), DELTA);
 		assertEquals(155.15, alfandega.getTotalDevido(), DELTA);
 	}
